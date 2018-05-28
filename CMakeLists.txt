@@ -27,7 +27,8 @@ target_compile_definitions(logc
 add_executable(jaggrab-server
         ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c
         ${CMAKE_CURRENT_SOURCE_DIR}/src/error_code.c
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/buffer.c)
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/buffer.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/crc.c)
 
 target_include_directories(jaggrab-server
     PUBLIC

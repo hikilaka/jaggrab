@@ -34,6 +34,7 @@ int buffer_write_int(struct buffer *buffer, uint32_t value);
 
 int buffer_write_long(struct buffer *buffer, uint64_t value);
 
+int buffer_write_string(struct buffer *buffer, char *value);
 
 #endif // SYSD_BUFFER_H
 

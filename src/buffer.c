@@ -2,6 +2,7 @@
 
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include <error_code.h>
 
@@ -96,5 +97,19 @@ int buffer_write_int(struct buffer *buffer, uint32_t value) {
 
 int buffer_write_long(struct buffer *buffer, uint64_t value) {
     write_data(buffer, 8, value);
+}
+
+int buffer_write_string(struct buffer *buffer, char *value) {
+    if (buffer == NULL || value == NULL) {
+        return SYSD_EINVARG;
+    }
+
+    size_t length = strlen(value);
+    int error = ensure_writable(buffer, length);
+
+    memcpy(buffer->payload + buffer->caret, value, length);
+    buffer->caret += length;
+
+    return SYSD_OK;
 }
 
