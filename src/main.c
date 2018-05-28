@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {
-    log_info("starting up jaggrab node");
+    log_info("initializing jaggrab node");
     uv_setup_args(argc, argv);
 
     uv_loop_t *loop = malloc(sizeof(uv_loop_t));
